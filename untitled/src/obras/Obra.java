@@ -1,7 +1,10 @@
 package obras;
 import avaliacao.Avaliacao;
+import gerenciamentoPrograma.excecoes.NotaInvalidaException;
+import gerenciamentoPrograma.interfaces.Exibivel;
+
 import java.util.ArrayList;
-public abstract class Obra {
+public abstract class Obra implements Exibivel {
     private int id;
     private String titulo;
     private int ano;
@@ -42,14 +45,21 @@ public abstract class Obra {
         }
         return this.somaNotas/this.numAvaliacoes;
     }
-    public void adicionarAvaliacao(Avaliacao novaAvaliacao){
+    public void adicionarAvaliacao(Avaliacao novaAvaliacao)throws NotaInvalidaException {
+        if (novaAvaliacao.getNota() < 0 || novaAvaliacao.getNota() > 10) {
+            throw new NotaInvalidaException("A nota deve estar entre 0 e 10.");
+        }
         this.avaliacoes.add(novaAvaliacao);
         this.numAvaliacoes++;
-        this.somaNotas =+ novaAvaliacao.getNota();
+        this.somaNotas += novaAvaliacao.getNota();
 
     }
     public ArrayList<Avaliacao> getAvaliacoes() {
         return avaliacoes;
     }
+
+    public abstract String exibirDetalhes();
+
+
 
 }

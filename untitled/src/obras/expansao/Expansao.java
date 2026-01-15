@@ -8,7 +8,8 @@ public class Expansao extends Obra {
         super(id, titulo,ano,desenvolvedor);
         this.jogoBase = jogoBase;
     }
-    public String exibirDLC() {
+    @Override
+    public String exibirDetalhes() {
         return String.format("EXPANSÃO: %s (%d)\nJogo Base: %s\nDesenvolvedora: %s\nMédia: %.1f",
                 getTitulo(), getAno(), jogoBase.getTitulo(), getDesenvolvedor(), getMedia());
     }

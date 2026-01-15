@@ -2,12 +2,13 @@ package usuarios;
 
 import avaliacao.Avaliacao;
 import gerenciamentoPrograma.gerenciaLogin.Autenticavel;
+import gerenciamentoPrograma.interfaces.Exibivel;
 import obras.Obra;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Usuario implements Autenticavel {
+public class Usuario implements Autenticavel, Exibivel {
     protected String nome;
     protected String email;
     protected String login;
@@ -57,5 +58,9 @@ public class Usuario implements Autenticavel {
     @Override
     public boolean autenticar(String login, String senha) {
         return this.login.equals(login) && this.senha.equals(senha);
+    }
+    @Override
+    public String exibirDetalhes() {
+        return "PERFIL: " + this.nome + " | Email: " + this.email + " | Login: " + this.login;
     }
 }

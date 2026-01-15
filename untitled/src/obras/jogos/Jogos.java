@@ -11,7 +11,9 @@ public class Jogos extends Obra {
         this.genero = genero;
         this.plataforma = plataforma;
     }
-    public String exibirDados() {
+    @Override
+    public String exibirDetalhes() {
+
         return String.format("JOGO: %s (%d)\nDesenvolvedora: %s\nGênero: %s\nPlataforma: %s\nMédia: %.1f",
                 getTitulo(), getAno(), getDesenvolvedor(), genero, plataforma, getMedia());
     }
