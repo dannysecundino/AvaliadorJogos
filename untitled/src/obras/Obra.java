@@ -11,7 +11,7 @@ public abstract class Obra implements Exibivel {
     private String desenvolvedor;
     private double somaNotas;
     private int numAvaliacoes;
-    private ArrayList<Avaliacao> avaliacoes;
+    private ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
     public Obra(int id, String titulo, int ano, String desenvolvedor) {
         this.id = id;
         this.titulo = titulo;
@@ -53,6 +53,13 @@ public abstract class Obra implements Exibivel {
         this.numAvaliacoes++;
         this.somaNotas += novaAvaliacao.getNota();
 
+    }
+
+    public void removerAvaliacao(Avaliacao av) {
+        if (this.avaliacoes.remove(av)) {
+            this.somaNotas -= av.getNota();
+            this.numAvaliacoes--;
+        }
     }
     public ArrayList<Avaliacao> getAvaliacoes() {
         return avaliacoes;

@@ -13,4 +13,12 @@ public class Avaliacao {
     public int getNota() {
         return nota;
     }
+
+    public Usuario getAutor(){
+        return this.autor;
+    }
+
+    public String getComentario(){
+        return this.comentario;
+    }
 }

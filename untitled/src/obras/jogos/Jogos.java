@@ -11,6 +11,14 @@ public class Jogos extends Obra {
         this.genero = genero;
         this.plataforma = plataforma;
     }
+
+    public String getGenero(){
+        return this.genero;
+    }
+
+    public String getPlataforma(){
+        return this.plataforma;
+    }
     @Override
     public String exibirDetalhes() {
 

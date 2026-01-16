@@ -67,6 +67,7 @@ public class TelaLogin extends JFrame {
             try{
                 LoginAut.realizarLogin(login, senha);
                 JOptionPane.showMessageDialog(this, "Login bem-sucedido! Bem vindo, " + LoginAut.getUsuarioLogado().getNome());
+                new TelaPrincipal();
                 dispose();
             } catch (LoginInvalidoException ex){
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro de Login", JOptionPane.ERROR_MESSAGE);
@@ -98,7 +99,7 @@ public class TelaLogin extends JFrame {
 
         gbc.gridy = 4;
         add(painelCadastro, gbc);
-        
+
         setVisible(true);
     }
 
