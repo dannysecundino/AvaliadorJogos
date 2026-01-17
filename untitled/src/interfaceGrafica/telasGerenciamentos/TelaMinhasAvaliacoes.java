@@ -14,6 +14,11 @@ public class TelaMinhasAvaliacoes extends JFrame {
     private DefaultTableModel modelo;
 
     public TelaMinhasAvaliacoes() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         setTitle("GameDex - Minhas Avaliações");
         setSize(600, 400);
         setLocationRelativeTo(null);

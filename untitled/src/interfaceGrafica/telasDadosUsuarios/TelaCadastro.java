@@ -12,8 +12,13 @@ public class TelaCadastro extends JFrame{
     private JTextField txtNome, txtEmail, txtUsername;
     private JPasswordField txtSenha;
     private JButton btnConfirmar, btnVoltar;
+    private JLabel lblTitulo;
 
     public TelaCadastro() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
 
         //configs basicas
         setTitle("GameDex - Cadastro");
@@ -26,13 +31,23 @@ public class TelaCadastro extends JFrame{
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         //elementos visuais
-        adicionarCampo("Nome:", txtNome = new JTextField(15), gbc, 0);
-        adicionarCampo("Email:", txtEmail = new JTextField(15), gbc, 1);
-        adicionarCampo("Username:", txtUsername = new JTextField(15), gbc, 2);
-        adicionarCampo("Senha:", txtSenha = new JPasswordField(15), gbc, 3);
+        lblTitulo = new JLabel("Cadastre-se");
+        lblTitulo.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        add(lblTitulo, gbc);
+
+        adicionarCampo("Nome:", txtNome = new JTextField(15), gbc, 1);
+        adicionarCampo("Email:", txtEmail = new JTextField(15), gbc, 2);
+        adicionarCampo("Username:", txtUsername = new JTextField(15), gbc, 3);
+        adicionarCampo("Senha:", txtSenha = new JPasswordField(15), gbc, 4);
 
         btnConfirmar = new JButton("Confirmar Cadastro");
-        gbc.gridx = 0; gbc.gridy = 4; gbc.gridwidth = 2;
+        gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 2;
         add(btnConfirmar, gbc);
 
         btnConfirmar.addActionListener(e -> realizarCadastro());
@@ -42,7 +57,7 @@ public class TelaCadastro extends JFrame{
         //botão para voltar
         btnVoltar = new JButton("Voltar");
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.gridwidth = 2;
         add(btnVoltar, gbc);
 

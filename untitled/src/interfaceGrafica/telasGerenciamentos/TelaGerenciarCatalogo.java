@@ -14,6 +14,11 @@ public class TelaGerenciarCatalogo extends JFrame {
     private DefaultTableModel modelo;
 
     public TelaGerenciarCatalogo() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         setTitle("GameDex - Gerenciar Catálogo");
         setSize(700, 500);
         setLocationRelativeTo(null);

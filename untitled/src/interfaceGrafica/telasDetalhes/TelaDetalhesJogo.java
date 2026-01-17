@@ -17,6 +17,11 @@ public class TelaDetalhesJogo extends JFrame {
     private JLabel lblMedia;
 
     public TelaDetalhesJogo(Jogo jogo) {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         this.jogo = jogo;
         this.userLogado = LoginAut.getUsuarioLogado();
 

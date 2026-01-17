@@ -14,6 +14,11 @@ public class TelaSobreMim extends JFrame {
     private Usuario userLogado;
 
     public TelaSobreMim() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         this.userLogado = LoginAut.getUsuarioLogado();
 
         setTitle("GameDex - Sobre Mim");

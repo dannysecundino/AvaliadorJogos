@@ -18,6 +18,11 @@ public class TelaLogin extends JFrame {
 
 
     public TelaLogin() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         //configs básicas
         setTitle("GameDex - Login");
         setSize(450, 400);

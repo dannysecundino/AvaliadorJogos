@@ -17,6 +17,11 @@ public class TelaDetalhesDLC extends JFrame {
     private JLabel lblMedia;
 
     public TelaDetalhesDLC(Expansao exp) {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         this.exp = exp;
         this.userLogado = LoginAut.getUsuarioLogado();
 

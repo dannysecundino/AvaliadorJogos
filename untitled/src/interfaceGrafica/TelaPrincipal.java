@@ -27,6 +27,11 @@ public class TelaPrincipal extends JFrame {
     private DefaultTableModel modeloTabela;
 
     public TelaPrincipal() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         setTitle("GameDex - Dashboard");
         setSize(1100, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

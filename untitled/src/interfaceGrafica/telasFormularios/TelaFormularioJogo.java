@@ -12,6 +12,11 @@ public class TelaFormularioJogo extends JFrame {
     private JButton btnSalvar;
 
     public TelaFormularioJogo() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         setTitle("GameDex - Novo Jogo");
         setSize(450, 350);
         setLocationRelativeTo(null);

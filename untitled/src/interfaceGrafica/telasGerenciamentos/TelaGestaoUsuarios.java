@@ -17,6 +17,11 @@ public class TelaGestaoUsuarios extends JFrame {
     private DefaultTableModel modelo;
 
     public TelaGestaoUsuarios() {
+        //icone da tela
+        Image icon = Toolkit.getDefaultToolkit()
+                .getImage(getClass().getResource("/images/icon.jpg"));
+        setIconImage(icon);
+
         setTitle("GameDex - Gestão de Usuários");
         setSize(600, 400);
         setLocationRelativeTo(null);
