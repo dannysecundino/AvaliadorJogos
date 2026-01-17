@@ -61,8 +61,8 @@ public class TelaFormularioDLC extends JFrame {
 
     private void salvar() {
         try {
-            Jogo jogoBase = (Jogo) comboJogoBase.getSelectedItem();
-            if (jogoBase == null) {
+            String nomeJogoBase = (String) comboJogoBase.getSelectedItem();
+            if (nomeJogoBase == null) {
                 JOptionPane.showMessageDialog(this, "É necessário um jogo base para cadastrar uma DLC!");
                 return;
             }
@@ -70,6 +70,7 @@ public class TelaFormularioDLC extends JFrame {
             String titulo = txtTitulo.getText();
             String dev = txtDev.getText();
             int ano = Integer.parseInt(txtAno.getText());
+            Jogo jogoBase = pesquisarJogoBasePorNome(nomeJogoBase);
 
             int novoId = BancoDados.getInstancia().getObras().size() + 1;
             Expansao novaDLC = new Expansao(novoId, titulo, dev, ano, jogoBase);
@@ -80,5 +81,12 @@ public class TelaFormularioDLC extends JFrame {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Ano inválido!");
         }
+    }
+
+    private Jogo pesquisarJogoBasePorNome(String nomeJogoBase) {
+        for (Obra o : BancoDados.getInstancia().getObras()){
+            if ((o instanceof Jogo) && (nomeJogoBase.equals(o.getTitulo()))) return (Jogo) o;
+        }
+        return null;
     }
 }
