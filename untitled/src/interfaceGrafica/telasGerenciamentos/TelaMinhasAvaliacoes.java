@@ -38,7 +38,7 @@ public class TelaMinhasAvaliacoes extends JFrame {
 
     private void carregarAvaliacoes() {
         Usuario logado = LoginAut.getUsuarioLogado();
-        for (Obra obra : BancoDados.getInstancia().getObras()) {
+        for (Obra obra : BancoDados.getInstancia().getObras().getObras()) {
             for (Avaliacao av : obra.getAvaliacoes()) {
                 if (av.getAutor().getLogin().equals(logado.getLogin())) {
                     modelo.addRow(new Object[]{obra.getTitulo(), av.getNota(), av.getComentario()});

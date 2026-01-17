@@ -137,7 +137,7 @@ public class TelaPrincipal extends JFrame {
             int linha = tabelaJogos.getSelectedRow();
             if (linha != -1) {
                 int idBuscado = Integer.parseInt(modeloTabela.getValueAt(linha, 0).toString());
-                for (Obra obra : BancoDados.getInstancia().getObras()) {
+                for (Obra obra : BancoDados.getInstancia().getObras().getObras()) {
                     if (obra.getId() == idBuscado) {
                         if (obra instanceof Jogo) {
                             new TelaDetalhesJogo((Jogo) obra);
@@ -197,7 +197,7 @@ public class TelaPrincipal extends JFrame {
 
     private void atualizarTabela() {
         modeloTabela.setRowCount(0);
-        ArrayList<Obra> obras = BancoDados.getInstancia().getObras();
+        ArrayList<Obra> obras = BancoDados.getInstancia().getObras().getObras();
 
         for (Obra o : obras) {
             String tipo = "";

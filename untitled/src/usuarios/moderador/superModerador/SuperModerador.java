@@ -30,10 +30,10 @@ public class SuperModerador extends Moderador {
 
 
         BancoDados bd = BancoDados.getInstancia();
-        int posicao = bd.getUsuarios().indexOf(usuarioAlvo);
+        int posicao = bd.getUsuarios().getUsuarios().indexOf(usuarioAlvo);
 
         if (posicao != -1) {
-            bd.getUsuarios().set(posicao, novoMod);
+            bd.getUsuarios().getUsuarios().set(posicao, novoMod);
             System.out.println("Promoção concluída: " + usuarioAlvo.getNome() + " agora é Moderador!");
         }
     }
@@ -53,10 +53,10 @@ public class SuperModerador extends Moderador {
         );
 
         BancoDados bd = BancoDados.getInstancia();
-        int index = bd.getUsuarios().indexOf(moderadorAlvo);
+        int index = bd.getUsuarios().getUsuarios().indexOf(moderadorAlvo);
 
         if (index != -1) {
-            bd.getUsuarios().set(index, usuarioComum);
+            bd.getUsuarios().getUsuarios().set(index, usuarioComum);
             System.out.println("Permissões removidas. O usuário " + moderadorAlvo.getNome() + " agora é Jogador.");
         }
     }

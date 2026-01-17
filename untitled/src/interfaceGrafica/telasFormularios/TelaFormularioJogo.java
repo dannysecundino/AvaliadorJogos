@@ -55,7 +55,7 @@ public class TelaFormularioJogo extends JFrame {
             String plat = txtPlat.getText();
 
 
-            int novoId = BancoDados.getInstancia().getObras().size() + 1;
+            int novoId = BancoDados.getInstancia().getObras().getObras().size() + 1;
             Jogo novoJogo = new Jogo(novoId, titulo, dev, ano, gen, plat);
 
             BancoDados.getInstancia().getObras().add(novoJogo);

@@ -54,7 +54,7 @@ public class TelaGestaoUsuarios extends JFrame {
 
     private void atualizarTabela() {
         modelo.setRowCount(0);
-        for (Usuario u : BancoDados.getInstancia().getUsuarios()) {
+        for (Usuario u : BancoDados.getInstancia().getUsuarios().getUsuarios()) {
             String cargo = "Jogador";
             if (u instanceof SuperModerador) cargo = "SuperModerador";
             else if (u instanceof Moderador) cargo = "Moderador";
@@ -76,9 +76,9 @@ public class TelaGestaoUsuarios extends JFrame {
             Usuario alvo = null;
             int indexAlvo = -1;
 
-            for (int i = 0; i < bd.getUsuarios().size(); i++) {
-                if (bd.getUsuarios().get(i).getLogin().equals(login)) {
-                    alvo = bd.getUsuarios().get(i);
+            for (int i = 0; i < bd.getUsuarios().getUsuarios().size(); i++) {
+                if (bd.getUsuarios().getUsuarios().get(i).getLogin().equals(login)) {
+                    alvo = bd.getUsuarios().getUsuarios().get(i);
                     indexAlvo = i;
                     break;
                 }
@@ -90,7 +90,7 @@ public class TelaGestaoUsuarios extends JFrame {
                 if (!(alvo instanceof Moderador) && !(alvo instanceof SuperModerador)) {
                     admin.promoverParaModerador(alvo);
                     // IMPORTANTE: O admin cria um novo objeto, precisamos de o substituir na lista
-                    for (Usuario u : bd.getUsuarios()) {
+                    for (Usuario u : bd.getUsuarios().getUsuarios()) {
                         if (u.getLogin().equals(login) && u instanceof Moderador) {
                             // O objeto já foi trocado pela lógica do SuperModerador
                             break;
@@ -128,7 +128,7 @@ public class TelaGestaoUsuarios extends JFrame {
             int confirmacao = JOptionPane.showConfirmDialog(this, "Excluir obra?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (confirmacao == JOptionPane.YES_OPTION) {
                 int id = (int) modelo.getValueAt(linha, 0);
-                BancoDados.getInstancia().getObras().removeIf(o -> o.getId() == id);
+                BancoDados.getInstancia().getObras().remove(id);
                 atualizarTabela();
             }
 

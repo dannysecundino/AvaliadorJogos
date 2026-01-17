@@ -9,7 +9,7 @@ public class AdicionadorUsuario {
     public static void adicionarUsuario(Usuario novoUsuario) throws CadastroInvalidoException {
         BancoDados bd = BancoDados.getInstancia();
 
-        for (Usuario u : bd.getUsuarios()){
+        for (Usuario u : bd.getUsuarios().getUsuarios()){
             if(u.getLogin().equals(novoUsuario.getLogin())){
                 throw new CadastroInvalidoException("Este nome de usuário já está em uso.");
             }

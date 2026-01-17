@@ -8,7 +8,7 @@ public class LoginAut {
     public static void realizarLogin(String login, String senha) throws LoginInvalidoException {
         BancoDados bd = BancoDados.getInstancia();
 
-        for (Usuario u : bd.getUsuarios()) {
+        for (Usuario u : bd.getUsuarios().getUsuarios()) {
             if (u.autenticar(login, senha)) {
                 usuarioLogado = u;
                 System.out.println("Login bem-sucedido! Bem-vindo, " + u.getNome());

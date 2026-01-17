@@ -36,7 +36,7 @@ public class TelaFormularioDLC extends JFrame {
         add(new JLabel("Jogo Base:"), gbc);
 
         comboJogoBase = new JComboBox<>();
-        for (Obra o : BancoDados.getInstancia().getObras()) {
+        for (Obra o : BancoDados.getInstancia().getObras().getObras()) {
             if (o instanceof Jogo) {
                 comboJogoBase.addItem(((Jogo) o).getTitulo());
             }
@@ -72,7 +72,7 @@ public class TelaFormularioDLC extends JFrame {
             int ano = Integer.parseInt(txtAno.getText());
             Jogo jogoBase = pesquisarJogoBasePorNome(nomeJogoBase);
 
-            int novoId = BancoDados.getInstancia().getObras().size() + 1;
+            int novoId = BancoDados.getInstancia().getObras().getObras().size() + 1;
             Expansao novaDLC = new Expansao(novoId, titulo, dev, ano, jogoBase);
 
             BancoDados.getInstancia().getObras().add(novaDLC);
@@ -84,7 +84,7 @@ public class TelaFormularioDLC extends JFrame {
     }
 
     private Jogo pesquisarJogoBasePorNome(String nomeJogoBase) {
-        for (Obra o : BancoDados.getInstancia().getObras()){
+        for (Obra o : BancoDados.getInstancia().getObras().getObras()){
             if ((o instanceof Jogo) && (nomeJogoBase.equals(o.getTitulo()))) return (Jogo) o;
         }
         return null;

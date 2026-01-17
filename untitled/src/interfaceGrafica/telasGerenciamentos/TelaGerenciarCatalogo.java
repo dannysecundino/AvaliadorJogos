@@ -61,7 +61,7 @@ public class TelaGerenciarCatalogo extends JFrame {
 
     private void atualizarTabela() {
         modelo.setRowCount(0);
-        for (Obra o : BancoDados.getInstancia().getObras()) {
+        for (Obra o : BancoDados.getInstancia().getObras().getObras()) {
             String tipo = (o instanceof Jogo) ? "Jogo" : "DLC";
             modelo.addRow(new Object[]{o.getId(), o.getTitulo(), tipo, o.getDesenvolvedor()});
         }
@@ -79,7 +79,7 @@ public class TelaGerenciarCatalogo extends JFrame {
 
         if (confirmacao == JOptionPane.YES_OPTION) {
             int id = (int) modelo.getValueAt(linha, 0);
-            BancoDados.getInstancia().getObras().removeIf(o -> o.getId() == id);
+            BancoDados.getInstancia().getObras().remove(id);
             atualizarTabela();
             JOptionPane.showMessageDialog(this, "Obra removida com sucesso!");
         }
