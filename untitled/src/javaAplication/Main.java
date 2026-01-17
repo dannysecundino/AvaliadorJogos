@@ -14,9 +14,25 @@ public class Main {
     public static void main(String[] args){
 
         BancoDados bd = BancoDados.getInstancia();
-        Usuario player = new Usuario("jogador","jogador@gamedex.com","gamer","234");
-        Moderador mod = new Moderador ("Joao", "mod@gmail.com", "j", "111");
-        SuperModerador admin = new SuperModerador("admin", "adm@gamedex.com", "super", "123");
+
+        //usuários
+        SuperModerador admin30 = new SuperModerador("Fernando Trinta", "trinta@gamedex.com", "fernando", "f30");
+
+        SuperModerador admin1 = new SuperModerador("Leonardo", "leo@gamedex.com", "leo", "leo1");
+        SuperModerador admin2 = new SuperModerador("Pedro", "pedro@gamedex.com", "pedro", "pedro1");
+        SuperModerador admin3 = new SuperModerador("Alexandre", "alfredofilho@gamedex.com", "alex", "alex1");
+        SuperModerador admin4 = new SuperModerador("Danny", "danny@gamedex.com", "danny", "danny1");
+        SuperModerador admin5 = new SuperModerador("Saulo", "sosaulo@gamedex.com", "saulo", "saulo1");
+
+        Moderador mod1 = new Moderador ("Américo", "americano@gamedex.com", "americo", "111");
+        Moderador mod2 = new Moderador ("Beatriz", "bia@gamedex.com", "bia", "222");
+        Moderador mod3 = new Moderador ("Caio", "caioemanuel@gamedex.com", "caio", "333");
+
+        Usuario player1 = new Usuario("Alice","alice@gamedex.com","alice","111");
+        Usuario player2 = new Usuario("Bob","bob@gamedex.com","bob","222");
+        Usuario player3 = new Usuario("Carlos","carlos@gamedex.com","carlos","333");
+
+        //catálogo
         Jogo metalgearrisingrevengeance = new Jogo(19, "Metal Gear Rising: Revengeance", "PlatinumGames", 2013, "Hack and Slash", "PC/PS3/XBOX");
         Jogo doometernal = new Jogo(20, "Doom Eternal", "id Software", 2020, "Arena Shooter", "PC/PS4/PS5/XONE/XSeries/Switch");
         Expansao theancientgods1 = new Expansao(21, "The Ancient Gods - Part One", "id Software", 2020, doometernal);
@@ -63,9 +79,18 @@ public class Main {
         bd.getObras().add(farcryblooddragon);
         bd.getObras().add(separateways);
 
-        bd.getUsuarios().add(admin);
-        bd.getUsuarios().add(mod);
-        bd.getUsuarios().add(player);
+        bd.getUsuarios().add(admin30);
+        bd.getUsuarios().add(admin1);
+        bd.getUsuarios().add(admin2);
+        bd.getUsuarios().add(admin3);
+        bd.getUsuarios().add(admin4);
+        bd.getUsuarios().add(admin5);
+        bd.getUsuarios().add(mod1);
+        bd.getUsuarios().add(mod2);
+        bd.getUsuarios().add(mod3);
+        bd.getUsuarios().add(player1);
+        bd.getUsuarios().add(player2);
+        bd.getUsuarios().add(player3);
         new TelaLogin();
     }
 }
