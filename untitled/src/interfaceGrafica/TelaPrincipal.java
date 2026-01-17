@@ -200,16 +200,14 @@ public class TelaPrincipal extends JFrame {
         ArrayList<Obra> obras = BancoDados.getInstancia().getObras().getObras();
 
         for (Obra o : obras) {
-            String genero = "-";
-            String plataforma = "-";
+            String genero = "---";
+            String plataforma = "---";
 
             if (o instanceof Jogo j) {
                 genero = j.getGenero();
                 plataforma = j.getPlataforma();
             } else if (o instanceof Expansao e) {
-                genero = "Expansão";
-                // Aqui pegamos a plataforma do jogo base da DLC
-                plataforma = e.getJogoBase().getPlataforma();
+                genero = "---";
             }
 
             Object[] row = {
