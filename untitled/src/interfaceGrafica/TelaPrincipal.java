@@ -8,11 +8,18 @@ import java.util.ArrayList;
 
 import gerenciamentoPrograma.bancoDados.BancoDados;
 import gerenciamentoPrograma.gerenciaLogin.LoginAut;
+import interfaceGrafica.telasDetalhes.TelaDetalhesDLC;
+import interfaceGrafica.telasDetalhes.TelaDetalhesJogo;
+import interfaceGrafica.telasGerenciamentos.TelaGerenciarCatalogo;
+import interfaceGrafica.telasGerenciamentos.TelaGestaoUsuarios;
+import interfaceGrafica.telasDadosUsuarios.TelaLogin;
+import interfaceGrafica.telasDadosUsuarios.TelaSobreMim;
+import interfaceGrafica.telasGerenciamentos.TelaMinhasAvaliacoes;
 import usuarios.Usuario;
 import usuarios.moderador.Moderador;
 import usuarios.moderador.superModerador.SuperModerador;
 import obras.Obra;
-import obras.jogos.Jogo;
+import obras.jogo.Jogo;
 import obras.expansao.Expansao;
 
 public class TelaPrincipal extends JFrame {
@@ -121,13 +128,7 @@ public class TelaPrincipal extends JFrame {
                         if (obra instanceof Jogo) {
                             new TelaDetalhesJogo((Jogo) obra);
                         } else if (obra instanceof Expansao) {
-                            Expansao dlc = (Expansao) obra;
-                            String info = "DLC: " + dlc.getTitulo() +
-                                    "\nAno: " + dlc.getAno() +
-                                    "\nDesenvolvedora: " + dlc.getDesenvolvedor() +
-                                    "\n\nESTA É UMA EXPANSÃO DE: " + dlc.getJogoBase().getTitulo();
-
-                            JOptionPane.showMessageDialog(this, info, "Detalhes da DLC", JOptionPane.INFORMATION_MESSAGE);
+                            new TelaDetalhesDLC((Expansao) obra);
                         }
                         return;
                     }

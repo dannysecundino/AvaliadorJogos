@@ -1,9 +1,9 @@
 package javaAplication;
 
 import gerenciamentoPrograma.bancoDados.BancoDados;
-import interfaceGrafica.TelaLogin;
+import interfaceGrafica.telasDadosUsuarios.TelaLogin;
 import obras.expansao.Expansao;
-import obras.jogos.Jogo;
+import obras.jogo.Jogo;
 import usuarios.Usuario;
 import usuarios.moderador.Moderador;
 import usuarios.moderador.superModerador.SuperModerador;

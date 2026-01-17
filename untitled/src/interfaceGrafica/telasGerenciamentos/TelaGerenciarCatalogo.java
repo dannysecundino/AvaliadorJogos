@@ -1,11 +1,13 @@
-package interfaceGrafica;
+package interfaceGrafica.telasGerenciamentos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import gerenciamentoPrograma.bancoDados.BancoDados;
+import interfaceGrafica.telasFormularios.TelaFormularioDLC;
+import interfaceGrafica.telasFormularios.TelaFormularioJogo;
 import obras.Obra;
-import obras.jogos.Jogo;
+import obras.jogo.Jogo;
 
 public class TelaGerenciarCatalogo extends JFrame {
     private JTable tabela;
@@ -29,6 +31,8 @@ public class TelaGerenciarCatalogo extends JFrame {
 
         JPanel painelBotoes = new JPanel();
         JButton btnNovoJogo = new JButton("Cadastrar Jogo");
+        btnNovoJogo.addActionListener(e -> {
+            new TelaFormularioJogo();});
 
         JButton btnNovaDLC = new JButton("Cadastrar DLC");
         btnNovaDLC.addActionListener(e -> {

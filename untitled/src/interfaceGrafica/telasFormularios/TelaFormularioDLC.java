@@ -1,16 +1,16 @@
-package interfaceGrafica;
+package interfaceGrafica.telasFormularios;
 
 import javax.swing.*;
 import java.awt.*;
 
 import gerenciamentoPrograma.bancoDados.BancoDados;
-import obras.jogos.Jogo;
+import obras.jogo.Jogo;
 import obras.expansao.Expansao;
 import obras.Obra;
 
 public class TelaFormularioDLC extends JFrame {
     private JTextField txtTitulo, txtDev, txtAno;
-    private JComboBox<Jogo> comboJogoBase;
+    private JComboBox<String> comboJogoBase;
     private JButton btnSalvar;
 
     public TelaFormularioDLC() {
@@ -33,7 +33,7 @@ public class TelaFormularioDLC extends JFrame {
         comboJogoBase = new JComboBox<>();
         for (Obra o : BancoDados.getInstancia().getObras()) {
             if (o instanceof Jogo) {
-                comboJogoBase.addItem((Jogo) o);
+                comboJogoBase.addItem(((Jogo) o).getTitulo());
             }
         }
         gbc.gridx = 1;

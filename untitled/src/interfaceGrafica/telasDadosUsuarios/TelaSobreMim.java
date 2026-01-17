@@ -1,4 +1,4 @@
-package interfaceGrafica;
+package interfaceGrafica.telasDadosUsuarios;
 
 import javax.swing.*;
 import java.awt.*;

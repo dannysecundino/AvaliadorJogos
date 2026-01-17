@@ -1,28 +1,28 @@
-package interfaceGrafica;
+package interfaceGrafica.telasDetalhes;
+
+import avaliacao.Avaliacao;
+import excecoes.NotaInvalidaException;
+import gerenciamentoPrograma.gerenciaLogin.LoginAut;
+import obras.expansao.Expansao;
+import usuarios.Usuario;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-import obras.jogos.Jogo;
-import avaliacao.Avaliacao;
-import gerenciamentoPrograma.gerenciaLogin.LoginAut;
-import usuarios.Usuario;
-import excecoes.NotaInvalidaException;
-
-public class TelaDetalhesJogo extends JFrame {
-    private Jogo jogo;
+public class TelaDetalhesDLC extends JFrame {
+    private Expansao exp;
     private Usuario userLogado;
     private JPanel painelComentarios;
     private JLabel lblMedia;
 
-    public TelaDetalhesJogo(Jogo jogo) {
-        this.jogo = jogo;
+    public TelaDetalhesDLC(Expansao exp) {
+        this.exp = exp;
         this.userLogado = LoginAut.getUsuarioLogado();
 
         //principal
-        setTitle("GameDex - Detalhes do Jogo");
-        setSize(550, 750);
+        setTitle("GameDex - Detalhes da Expansão");
+        setSize(550, 700);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
@@ -35,18 +35,17 @@ public class TelaDetalhesJogo extends JFrame {
                 new EmptyBorder(20, 25, 20, 25)
         ));
 
-        JLabel lblTitulo = new JLabel(jogo.getTitulo().toUpperCase());
+        JLabel lblTitulo = new JLabel(exp.getTitulo().toUpperCase());
         lblTitulo.setFont(new Font("SansSerif", Font.BOLD, 22));
         lblTitulo.setForeground(new Color(0, 102, 244));
 
-        lblMedia = new JLabel(String.format("Nota Média: %.1f / 10.0 ⭐", jogo.getMedia()));
+        lblMedia = new JLabel(String.format("Nota Média: %.1f / 10.0 ⭐", exp.getMedia()));
         lblMedia.setFont(new Font("SansSerif", Font.BOLD, 16));
 
         painelInfo.add(lblTitulo);
-        painelInfo.add(new JLabel("Ano: " + jogo.getAno()));
-        painelInfo.add(new JLabel("Desenvolvedora: " + jogo.getDesenvolvedor()));
-        // Como plataforma é private em Jogos, usamos o exibirDetalhes para extrair ou use getter se criou
-        painelInfo.add(new JLabel("Plataforma: " + jogo.exibirDetalhes().split("\n")[4].split(": ")[1]));
+        painelInfo.add(new JLabel("Ano: " + exp.getAno()));
+        painelInfo.add(new JLabel("Desenvolvedora: " + exp.getDesenvolvedor()));
+        painelInfo.add(new JLabel("Jogo Base: " + exp.getJogoBase().getTitulo()));
         painelInfo.add(lblMedia);
 
         add(painelInfo, BorderLayout.NORTH);
@@ -75,9 +74,9 @@ public class TelaDetalhesJogo extends JFrame {
 
     private void atualizarLista() {
         painelComentarios.removeAll();
-        lblMedia.setText(String.format("Nota Média: %.1f / 10.0 ⭐", jogo.getMedia()));
+        lblMedia.setText(String.format("Nota Média: %.1f / 10.0 ⭐", exp.getMedia()));
 
-        for (Avaliacao av : jogo.getAvaliacoes()) {
+        for (Avaliacao av : exp.getAvaliacoes()) {
             JPanel card = new JPanel(new BorderLayout(10, 10));
             card.setBackground(Color.WHITE);
             card.setBorder(BorderFactory.createCompoundBorder(
@@ -136,7 +135,7 @@ public class TelaDetalhesJogo extends JFrame {
     }
 
     private Avaliacao buscarReviewUsuario() {
-        for (Avaliacao a : jogo.getAvaliacoes()) {
+        for (Avaliacao a : exp.getAvaliacoes()) {
             if (a.getAutor().getLogin().equals(userLogado.getLogin())) return a;
         }
         return null;
@@ -159,11 +158,11 @@ public class TelaDetalhesJogo extends JFrame {
                 String comentario = campoTexto.getText();
 
                 if (existente != null) { //trocar uma avaliacao pela outra
-                    jogo.removerAvaliacao(existente);
+                    exp.removerAvaliacao(existente);
                 }
 
                 Avaliacao nova = new Avaliacao(nota, userLogado, comentario);
-                jogo.adicionarAvaliacao(nova);
+                exp.adicionarAvaliacao(nova);
                 atualizarLista();
 
             } catch (NumberFormatException ex) {

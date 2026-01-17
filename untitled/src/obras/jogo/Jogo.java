@@ -1,4 +1,4 @@
-package obras.jogos;
+package obras.jogo;
 
 import obras.Obra;
 

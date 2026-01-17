@@ -1,4 +1,4 @@
-package interfaceGrafica;
+package interfaceGrafica.telasDadosUsuarios;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,6 +6,7 @@ import java.awt.*;
 
 import gerenciamentoPrograma.gerenciaLogin.LoginAut;
 import excecoes.LoginInvalidoException;
+import interfaceGrafica.TelaPrincipal;
 
 public class TelaLogin extends JFrame {
 

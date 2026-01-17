@@ -1,10 +1,11 @@
 package obras.expansao;
 
 import obras.Obra;
-import obras.jogos.Jogo;
+import obras.jogo.Jogo;
 
 public class Expansao extends Obra {
     private Jogo jogoBase;
+
     public Jogo getJogoBase() {
         return this.jogoBase;
     }
