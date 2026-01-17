@@ -12,7 +12,7 @@ public class AdicionadorObras {
             BancoDados.getInstancia().getObras().add(obra);
             System.out.println("Obra adicionado com sucesso!");
         }else{
-            throw new AcessoNegadoException("Acesso Negado: Apenas Moderadores podem cadastrar obras.");
+            throw new AcessoNegadoException("Acesso Negado: Apenas Moderadores e SuperModeradores podem cadastrar obras.");
         }
     }
 }
