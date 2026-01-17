@@ -34,6 +34,7 @@ public class TelaPrincipal extends JFrame {
 
         setTitle("GameDex - Dashboard");
         setSize(1100, 700);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(0, 122, 204));
