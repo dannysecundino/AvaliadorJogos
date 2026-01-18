@@ -39,6 +39,7 @@ public abstract class Obra implements Exibivel {
     public int getNumAvaliacoes() {
         return numAvaliacoes;
     }
+
     public double getMedia(){
         if(this.numAvaliacoes == 0){
             return 0.0;
@@ -67,6 +68,5 @@ public abstract class Obra implements Exibivel {
 
     public abstract String exibirDetalhes();
 
-
-
+    public abstract boolean igual(Obra outra);
 }

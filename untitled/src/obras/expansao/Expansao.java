@@ -13,9 +13,16 @@ public class Expansao extends Obra {
         super(id, titulo,ano,desenvolvedor);
         this.jogoBase = jogoBase;
     }
+
+
     @Override
     public String exibirDetalhes() {
         return String.format("EXPANSÃO: %s (%d)\nJogo Base: %s\nDesenvolvedora: %s\nMédia: %.1f",
                 getTitulo(), getAno(), jogoBase.getTitulo(), getDesenvolvedor(), getMedia());
+    }
+    public boolean igual(Obra outra) {
+        if(outra instanceof Expansao && outra.getTitulo().equalsIgnoreCase(this.getTitulo()) &&  outra.getAno() == this.getAno()
+                && outra.getDesenvolvedor().equalsIgnoreCase(this.getDesenvolvedor()) && ((Expansao)outra).getJogoBase().igual(this.getJogoBase()) ) return true;
+        else return false;
     }
 }

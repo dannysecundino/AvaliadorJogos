@@ -1,5 +1,6 @@
 package javaAplication;
 
+import excecoes.ObraJaCadastradaException;
 import gerenciamentoPrograma.bancoDados.BancoDados;
 import interfaceGrafica.telasDadosUsuarios.TelaLogin;
 import obras.expansao.Expansao;
@@ -11,7 +12,7 @@ import usuarios.moderador.superModerador.SuperModerador;
 public class Main {
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws ObraJaCadastradaException {
 
         BancoDados bd = BancoDados.getInstancia();
 

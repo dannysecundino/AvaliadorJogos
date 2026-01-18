@@ -25,4 +25,11 @@ public class Jogo extends Obra {
         return String.format("JOGO: %s (%d)\nDesenvolvedora: %s\nGênero: %s\nPlataforma: %s\nMédia: %.1f",
                 getTitulo(), getAno(), getDesenvolvedor(), genero, plataforma, getMedia());
     }
+
+    public boolean igual(Obra outra) {
+        if(outra instanceof Jogo && outra.getTitulo().equalsIgnoreCase(this.getTitulo()) &&  outra.getAno() == this.getAno()
+                && outra.getDesenvolvedor().equalsIgnoreCase(this.getDesenvolvedor()) && ((Jogo)outra).getPlataforma().equalsIgnoreCase(this.getPlataforma())
+                && ((Jogo)outra).getGenero().equalsIgnoreCase(this.getGenero())) return true;
+        else return false;
+    }
 }

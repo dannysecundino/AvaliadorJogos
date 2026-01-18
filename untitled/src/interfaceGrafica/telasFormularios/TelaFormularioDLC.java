@@ -3,6 +3,8 @@ package interfaceGrafica.telasFormularios;
 import javax.swing.*;
 import java.awt.*;
 
+import excecoes.AnoNegativoException;
+import excecoes.ObraJaCadastradaException;
 import gerenciamentoPrograma.bancoDados.BancoDados;
 import obras.jogo.Jogo;
 import obras.expansao.Expansao;
@@ -72,14 +74,24 @@ public class TelaFormularioDLC extends JFrame {
             int ano = Integer.parseInt(txtAno.getText());
             Jogo jogoBase = pesquisarJogoBasePorNome(nomeJogoBase);
 
+            if(titulo.isEmpty() || dev.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
+                return;
+            }
+
+            if(ano <= 0) throw new AnoNegativoException();
+
             int novoId = BancoDados.getInstancia().getObras().getObras().size() + 1;
             Expansao novaDLC = new Expansao(novoId, titulo, dev, ano, jogoBase);
 
             BancoDados.getInstancia().getObras().add(novaDLC);
             JOptionPane.showMessageDialog(this, "DLC cadastrada com sucesso!");
             dispose();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Ano inválido!");
+
+        } catch (NumberFormatException | AnoNegativoException ex) {
+            JOptionPane.showMessageDialog(this, "Ano inválido! O ano deve ser um inteiro positivo!");
+        } catch (ObraJaCadastradaException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro no Cadastro", JOptionPane.WARNING_MESSAGE);
         }
     }
 

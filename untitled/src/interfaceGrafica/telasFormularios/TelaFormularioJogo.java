@@ -1,5 +1,7 @@
 package interfaceGrafica.telasFormularios;
 
+import excecoes.AnoNegativoException;
+import excecoes.ObraJaCadastradaException;
 import gerenciamentoPrograma.bancoDados.BancoDados;
 import obras.jogo.Jogo;
 
@@ -54,6 +56,12 @@ public class TelaFormularioJogo extends JFrame {
             String gen = txtGen.getText();
             String plat = txtPlat.getText();
 
+            if(titulo.isEmpty() || dev.isEmpty() || gen.isEmpty() || plat.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
+                return;
+            }
+
+            if(ano <= 0) throw new AnoNegativoException();
 
             int novoId = BancoDados.getInstancia().getObras().getObras().size() + 1;
             Jogo novoJogo = new Jogo(novoId, titulo, dev, ano, gen, plat);
@@ -61,8 +69,11 @@ public class TelaFormularioJogo extends JFrame {
             BancoDados.getInstancia().getObras().add(novoJogo);
             JOptionPane.showMessageDialog(this, "Jogo cadastrado com sucesso!");
             dispose();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Ano inválido!");
+
+        } catch (NumberFormatException | AnoNegativoException ex) {
+            JOptionPane.showMessageDialog(this, "Ano inválido! O ano deve ser um inteiro positivo!");
+        } catch (ObraJaCadastradaException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro no Cadastro", JOptionPane.WARNING_MESSAGE);
         }
     }
 }

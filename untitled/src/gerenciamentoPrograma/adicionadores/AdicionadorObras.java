@@ -2,12 +2,13 @@
 
 package gerenciamentoPrograma.adicionadores;
 import excecoes.AcessoNegadoException;
+import excecoes.ObraJaCadastradaException;
 import obras.Obra;
 import usuarios.Usuario;
 import usuarios.moderador.Moderador;
 import gerenciamentoPrograma.bancoDados.BancoDados;
 public class AdicionadorObras {
-    public void adicionarObra(Usuario autor,Obra obra) throws AcessoNegadoException {
+    public void adicionarObra(Usuario autor,Obra obra) throws AcessoNegadoException, ObraJaCadastradaException {
         if(autor instanceof Moderador){
             BancoDados.getInstancia().getObras().add(obra);
             System.out.println("Obra adicionado com sucesso!");

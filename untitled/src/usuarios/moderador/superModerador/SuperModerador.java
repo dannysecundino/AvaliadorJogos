@@ -60,5 +60,4 @@ public class SuperModerador extends Moderador {
             System.out.println("Permissões removidas. O usuário " + moderadorAlvo.getNome() + " agora é Jogador.");
         }
     }
-
 }
